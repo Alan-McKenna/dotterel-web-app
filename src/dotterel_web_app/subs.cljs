@@ -3,6 +3,11 @@
    [re-frame.core :as re-frame]))
 
 (re-frame/reg-sub
- ::name
+ ::view
  (fn [db]
-   (:name db)))
+   (:view db)))
+
+(re-frame/reg-sub
+ ::portfolio
+ (fn [db]
+   (:portfolio db)))
