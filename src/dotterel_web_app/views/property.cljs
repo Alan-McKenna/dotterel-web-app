@@ -2,5 +2,5 @@
   (:require
    ))
 
-(defn view []
+(defn property []
    [:div  "Hello World"])

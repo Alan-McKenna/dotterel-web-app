@@ -2,12 +2,11 @@
   (:require
    [re-frame.core :as re-frame]
    [dotterel-web-app.subs :as subs]
+   [dotterel-web-app.components.portfolio-list-item :refer [portfolio-list-item]]
    ))
 
-(defn view []
+(defn portfolio []
   (let [portfolio (re-frame/subscribe [::subs/portfolio])]
     [:ul
-     (for [property @portfolio]
-       [:li
-        [:div "Address: " (get property :address)]
-        [:div "Tenant: " (get property :tenant)]])]))
+     (for [property @portfolio] (portfolio-list-item property))
+     ]))
