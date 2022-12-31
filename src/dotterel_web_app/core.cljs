@@ -4,7 +4,7 @@
    [re-frame.core :as re-frame]
    [dotterel-web-app.events :as events]
    [dotterel-web-app.config :as config]
-   [dotterel-web-app.subs :as subs]
+   [dotterel-web-app.views.view-wrapper :refer [view-wrapper]]
    ))
 
 (defn dev-setup []
@@ -12,10 +12,9 @@
     (println "dev mode")))
 
 (defn view-manager [root-el] 
-  (let [view (re-frame/subscribe [::subs/view])]
     (rdom/unmount-component-at-node root-el)
-    (rdom/render [@view] root-el)
-    ))
+    (rdom/render [view-wrapper] root-el)
+    )
 
 (defn ^:dev/after-load mount-root []
   (re-frame/clear-subscription-cache!)

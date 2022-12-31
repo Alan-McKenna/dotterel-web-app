@@ -8,3 +8,9 @@
  ::initialize-db
  (fn [_ _]
    db/default-db))
+
+
+(re-frame.core/reg-event-db
+ ::set-view
+ (fn [db [_ new-view]]
+   (assoc db :view new-view)))

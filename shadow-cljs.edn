@@ -26,4 +26,4 @@
    :dev
    {:compiler-options
     {:closure-defines
-     { }}}}}}
+     {goog.DEBUG false}}}}}}
